@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/list/", 'ApiController@listImages');
+Route::group(array('prefix' => 'api'), function()
+{
+    Route::get("/list/", 'ApiController@listImages');
+    Route::post('/upload/', 'ApiController@uploadImage');
+});
 
-Route::post('/upload/', 'ApiController@uploadImage');

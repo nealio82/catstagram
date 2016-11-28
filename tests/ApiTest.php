@@ -13,7 +13,7 @@ class ApiTest extends TestCase
      */
     public function testListImages()
     {
-        $this->json('GET', '/list/')
+        $this->json('GET', '/api/list/')
             ->seeJsonStructure([
                 '*' => [
                     'path'
@@ -28,7 +28,7 @@ class ApiTest extends TestCase
      */
     public function testPostImageWithValidFilename()
     {
-        $this->json('POST', '/upload/', ['filename' => "images/img1.jpg"])
+        $this->json('POST', '/api/upload/', ['filename' => "images/img1.jpg"])
             ->seeJsonContains([
                 'filename' => 'images/img1.jpg'
             ])->assertResponseStatus(200)->seeJson();
@@ -41,7 +41,7 @@ class ApiTest extends TestCase
      */
     public function testPostImageWithInvalidFilename()
     {
-        $this->json('POST', '/upload/', ['filename' => 'images/bleurgh'])
+        $this->json('POST', '/api/upload/', ['filename' => 'images/bleurgh'])
             ->seeJsonEquals([
                 'filename' => 'images/bleurgh',
                 'message' => 'images/bleurgh is not a valid filename',
