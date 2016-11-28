@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="catstagramApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Catstagram</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -67,20 +67,29 @@
     </style>
 </head>
 <body>
-
-<div class="content">
-    <div class="title m-b-md">
-        Catstagram
+<div class="container">
+    <div class="content">
+        <div class="title m-b-md">
+            Catstagram
+        </div>
+        <div class="row">
+            <div ng-view></div>
+        </div>
     </div>
-
-    <button class="btn btn-success">Click for kitties</button>
-
 </div>
-
+</body>
 <!-- Application Dependencies -->
 <script type="text/javascript" src="/app/bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="/app/bower_components/angular-route/angular-route.js"></script>
+<script type="text/javascript" src="/app/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+<script type="text/javascript" src="/app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
 <!-- Application Scripts -->
-<script type="text/javascript" src="/app/app.js"></script>
-</body>
+<script type="text/javascript" src="/app/app.module.js"></script>
+<script type="text/javascript" src="/app/app.config.js"></script>
+<script type="text/javascript" src="/app/home/home.module.js"></script>
+<script type="text/javascript" src="/app/home/home.component.js"></script>
+<script type="text/javascript" src="/app/kitty-list/kitty-list.module.js"></script>
+<script type="text/javascript" src="/app/kitty-list/kitty-list.component.js"></script>
+
 </html>

@@ -1,5 +1,5 @@
 {
-  "name": "castagramt",
+  "name": "castagram",
   "description": "Pictures of cats",
   "version": "0.0.0",
   "homepage": "https://github.com/nealio82/catsagram",
@@ -8,6 +8,7 @@
   "dependencies": {
     "angular": "1.5.x",
     "angular-mocks": "1.5.x",
+    "angular-route": "1.5.x",
     "bootstrap": "3.3.7"
   }
 }
