@@ -41,10 +41,10 @@ class ApiController extends Controller
 
             $uploader->uploadInfo($filename);
 
-            return response([
+            return response(json_encode([
                 'filename' => $filename,
                 'uri' => $uploader->remoteUri()
-            ]);
+            ]));
 
         } catch (\Exception $e) {
 
