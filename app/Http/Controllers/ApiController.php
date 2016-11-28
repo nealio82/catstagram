@@ -50,7 +50,7 @@ class ApiController extends Controller
 
             return response(json_encode([
                 'filename' => $filename,
-                'message' => $uploader->errorMessage()
+                'message' => $e->getMessage()
             ]), $uploader->errorCode());
 
         }

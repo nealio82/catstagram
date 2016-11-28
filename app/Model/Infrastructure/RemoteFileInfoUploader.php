@@ -10,8 +10,6 @@ interface RemoteFileInfoUploader
 
     public function errorCode();
 
-    public function errorMessage();
-
     public function remoteUri();
 
 }

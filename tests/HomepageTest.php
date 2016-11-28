@@ -14,7 +14,6 @@ class HomepageTest extends TestCase
     public function testHomepageText()
     {
         $this->visit('/')
-            ->see('Catstagram')
-            ->see('Click for kitties');
+            ->see('Catstagram');
     }
 }

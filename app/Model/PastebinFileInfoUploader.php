@@ -11,7 +11,6 @@ class PastebinFileInfoUploader implements RemoteFileInfoUploader
 {
 
     private $errorCode;
-    private $errorMessage;
     private $remoteUri;
     /**
      * @var FilesystemManager
@@ -41,8 +40,7 @@ class PastebinFileInfoUploader implements RemoteFileInfoUploader
              * Whoah there boy, that file didn't exist.
              */
             $this->errorCode = 400;
-            $this->errorMessage = sprintf("%s is not a valid filename", $filename);
-            throw new \DomainException($this->errorMessage);
+            throw new \DomainException(sprintf("%s is not a valid filename", $filename));
         }
 
         /**
@@ -60,8 +58,7 @@ class PastebinFileInfoUploader implements RemoteFileInfoUploader
              * (but don't expose the full error message!)
              */
             $this->errorCode = 500;
-            $this->errorMessage = "There was an error, please try again";
-            throw new \DomainException($this->errorMessage);
+            throw new \DomainException("There was an error, please try again");
 
         }
 
@@ -75,17 +72,6 @@ class PastebinFileInfoUploader implements RemoteFileInfoUploader
     public function errorCode()
     {
         return $this->errorCode;
-    }
-
-    /**
-     * Error message in case of failed upload
-     * Either upload error (will not be exposed to user)
-     * or user has chosen a non-existent image (will be exposed to user)
-     * @return mixed
-     */
-    public function errorMessage()
-    {
-        return $this->errorMessage;
     }
 
     /**
