@@ -21,10 +21,16 @@ class ApiController extends Controller
          * ['path' => 'img1', 'path' => 'img2', ...]
          */
         $images = array_map(function ($image) {
-            return ['path' => $image];
+
+            //check the mimetype, otherwise we get non-images appearing in the results!
+            if(stripos(Storage::disk('public')->mimeType($image), 'Image') === 0) {
+                return ['path' => $image];
+            }
+
         }, Storage::disk('public')->allFiles('images'));
 
-        return response(json_encode($images));
+        // array filter removes any null values which have been caught by the strpos mimetype check
+        return response(json_encode(array_filter($images)));
 
     }
 
