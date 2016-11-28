@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model\Infrastructure;
+namespace App\Model\Contract;
 
 
 interface RemoteFileInfoUploader

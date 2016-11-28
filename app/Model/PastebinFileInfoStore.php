@@ -2,8 +2,8 @@
 
 namespace App\Model;
 
-use App\Model\Infrastructure\HttpPostTransport;
-use App\Model\Infrastructure\RemoteFileInfostore;
+use App\Model\Contract\HttpPostTransport;
+use App\Model\Contract\RemoteFileInfostore;
 
 class PastebinFileInfoStore implements RemoteFileInfostore
 {

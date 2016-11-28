@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Infrastructure\RemoteFileInfoUploader;
+use App\Model\Contract\RemoteFileInfoUploader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 

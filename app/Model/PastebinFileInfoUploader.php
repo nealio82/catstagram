@@ -2,8 +2,8 @@
 
 namespace App\Model;
 
-use App\Model\Infrastructure\RemoteFileInfostore;
-use App\Model\Infrastructure\RemoteFileInfoUploader;
+use App\Model\Contract\RemoteFileInfostore;
+use App\Model\Contract\RemoteFileInfoUploader;
 use Illuminate\Filesystem\FilesystemManager;
 use Illuminate\Support\Facades\Storage;
 

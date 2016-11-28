@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use App\Model\CurlPostTransport;
-use App\Model\Infrastructure\HttpPostTransport;
-use App\Model\Infrastructure\RemoteFileInfostore;
-use App\Model\Infrastructure\RemoteFileInfoUploader;
+use App\Model\Contract\HttpPostTransport;
+use App\Model\Contract\RemoteFileInfostore;
+use App\Model\Contract\RemoteFileInfoUploader;
 use App\Model\PastebinFileInfoStore;
 use App\Model\PastebinFileInfoUploader;
 use Illuminate\Contracts\Filesystem\Filesystem;

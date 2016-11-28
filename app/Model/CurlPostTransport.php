@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-use App\Model\Infrastructure\HttpPostTransport;
+use App\Model\Contract\HttpPostTransport;
 
 class CurlPostTransport implements HttpPostTransport
 {
