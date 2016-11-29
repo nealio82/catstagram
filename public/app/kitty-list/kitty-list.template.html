@@ -1,10 +1,22 @@
+<div id="sidebar">
+
+    <div class="alert alert-info alert-dismissable" ng-repeat="paste in $ctrl.pastes"
+         ng-if="paste.response == 'success'"><a href="{{ paste.url }}">{{ paste.url }}</a>
+    </div>
+    <div class="alert alert-danger alert-dismissable" ng-repeat="paste in $ctrl.pastes"
+         ng-if="paste.response == 'error'">{{ paste.message }}
+    </div>
+
+</div>
+
 <div class="row">
     <div class="col-sm-6 col-md-4" ng-repeat="kitty in $ctrl.kitties" id="kitty-{{$index}}">
         <div class="thumbnail">
             <img ng-src="{{ kitty.path }}">
             <div class="caption">
                 <h3>{{ kitty.path.replace('images/', '') }}</h3>
-                <p><a class="btn btn-primary" role="button" ng-click="$ctrl.uploadKittyInfo(kitty.path, $index)">Send to Pastebin</a></p>
+                <p><a class="btn btn-primary" role="button" ng-click="$ctrl.uploadKittyInfo(kitty.path, $index)">Send to
+                    Pastebin</a></p>
             </div>
         </div>
     </div>

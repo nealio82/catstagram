@@ -64,6 +64,14 @@
         .m-b-md {
             margin-bottom: 30px;
         }
+
+        #sidebar {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            width: 250px;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
@@ -81,8 +89,6 @@
 <!-- Application Dependencies -->
 <script type="text/javascript" src="/app/bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="/app/bower_components/angular-route/angular-route.js"></script>
-<script type="text/javascript" src="/app/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
-<script type="text/javascript" src="/app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
 <!-- Application Scripts -->
 <script type="text/javascript" src="/app/app.module.js"></script>

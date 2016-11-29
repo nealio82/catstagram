@@ -48,9 +48,15 @@ class PastebinFileInfoUploader implements RemoteFileInfoUploader
          */
         try {
 
-            $uri = $this->remoteFileInfostore->postDetails($this->localFilestore->size($filename), $filename);
+            $response = $this->remoteFileInfostore->postDetails($this->localFilestore->size($filename), $filename);
 
-            $this->remoteUri = $uri;
+            /*
+             *  WTF!? Pastebin returns a 200 response even if the post isn't successful!! We'll have to
+             * check here that the response contains a URI
+             */
+            if (stripos($response, 'http') === 0) {
+                return $response;
+            }
 
         } catch (\Exception $e) {
             /**
@@ -61,6 +67,9 @@ class PastebinFileInfoUploader implements RemoteFileInfoUploader
             throw new \DomainException("There was an error, please try again");
 
         }
+
+        $this->errorCode = 500;
+        throw new \DomainException($response);
 
     }
 

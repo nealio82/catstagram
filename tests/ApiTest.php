@@ -45,6 +45,6 @@ class ApiTest extends TestCase
             ->seeJsonEquals([
                 'filename' => 'images/bleurgh',
                 'message' => 'images/bleurgh is not a valid filename',
-            ])->assertResponseStatus(400);
+            ])->assertResponseStatus(400)->seeJson();
     }
 }

@@ -5,17 +5,29 @@ angular.module('kittyList').component('kittyList', {
     controller: function KittyListController($http) {
 
         var self = this;
+        self.pastes = [];
 
         self.uploadKittyInfo = function uploadKittyInfo(imagePath, index) {
             $http.post('/api/upload', {
                 'filename': imagePath
-            }).then(function(response) {
-                alert(response.data.uri);
+            }).then(function successCallback(response) {
+
+                console.log(response);
+
+                self.pastes.push({
+                    'response': 'success',
+                    'url': response.data.uri
+                });
+            }, function errorCallback(response) {
+                self.pastes.push({
+                    'response': 'error',
+                    'message': response.data.message
+                });
             });
         }
 
         self.getKitties = function getKitties() {
-            $http.get('/api/list').then(function(response) {
+            $http.get('/api/list').then(function (response) {
                 self.kitties = response.data;
 
                 console.log(self.kitties);
