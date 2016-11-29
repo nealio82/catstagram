@@ -39,7 +39,6 @@ class PastebinFileInfoUploader implements RemoteFileInfoUploader
             /**
              * Whoah there boy, that file didn't exist.
              */
-            $this->errorCode = 400;
             throw new \DomainException(sprintf("%s is not a valid filename", $filename));
         }
 
@@ -55,7 +54,6 @@ class PastebinFileInfoUploader implements RemoteFileInfoUploader
              * check here that the response contains a URI
              */
             if (stripos($response, 'http') !== 0) {
-                $this->errorCode = 500;
                 throw new \DomainException($response);
             }
 
@@ -67,21 +65,10 @@ class PastebinFileInfoUploader implements RemoteFileInfoUploader
              * Something went wrong along the way, we'd better inform the user about it
              * (but don't expose the full error message!)
              */
-            $this->errorCode = 500;
             throw new \DomainException("There was an error, please try again");
 
         }
 
-    }
-
-    /**
-     * Http error code in case of upload error
-     * 400 | 500
-     * @return mixed
-     */
-    public function errorCode()
-    {
-        return $this->errorCode;
     }
 
     /**

@@ -43,7 +43,5 @@ class PastebinFileInfoUploaderTest extends TestCase
 
         $uploader->uploadInfo("images/bleurgh.jpg");
 
-        $this->assertEquals($uploader->errorCode(), 400);
-
     }
 }
