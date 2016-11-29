@@ -56,9 +56,13 @@ class PastebinFileInfoUploader implements RemoteFileInfoUploader
              */
             if (stripos($response, 'http') === 0) {
                 $this->remoteUri = $response;
+                return;
             }
 
-        } catch (\Exception $e) {
+            $this->errorCode = 500;
+            throw new \DomainException($response);
+
+        } catch (\HttpException $e) {
             /**
              * Something went wrong along the way, we'd better inform the user about it
              * (but don't expose the full error message!)
@@ -67,9 +71,6 @@ class PastebinFileInfoUploader implements RemoteFileInfoUploader
             throw new \DomainException("There was an error, please try again");
 
         }
-
-        $this->errorCode = 500;
-        throw new \DomainException($response);
 
     }
 

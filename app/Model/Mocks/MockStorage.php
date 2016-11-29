@@ -12,6 +12,11 @@ class MockStorage extends Storage
         return new static();
     }
 
+    public static function size($filename)
+    {
+        return 181224;
+    }
+
     public function has($filename)
     {
         if ($filename == 'images/example.jpg') {
