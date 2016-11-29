@@ -1,8 +1,12 @@
 <?php
 
+use App\Model\Contract\RemoteFileInfoUploader;
+use App\Model\Mocks\MockRemoteFileInfoUploader;
+use App\Model\Mocks\MockStorage;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Support\Facades\Storage;
 
 class ApiTest extends TestCase
 {
@@ -28,9 +32,12 @@ class ApiTest extends TestCase
      */
     public function testPostImageWithValidFilename()
     {
-        $this->json('POST', '/api/upload/', ['filename' => "images/img1.jpg"])
+
+        $this->app->bind(RemoteFileInfoUploader::class, MockRemoteFileInfoUploader::class);
+
+        $this->json('POST', '/api/upload/', ['filename' => "images/example.jpg"])
             ->seeJsonContains([
-                'filename' => 'images/img1.jpg'
+                'filename' => 'images/example.jpg'
             ])->assertResponseStatus(200)->seeJson();
     }
 
@@ -41,6 +48,9 @@ class ApiTest extends TestCase
      */
     public function testPostImageWithInvalidFilename()
     {
+
+        $this->app->bind(RemoteFileInfoUploader::class, MockRemoteFileInfoUploader::class);
+
         $this->json('POST', '/api/upload/', ['filename' => 'images/bleurgh'])
             ->seeJsonEquals([
                 'filename' => 'images/bleurgh',

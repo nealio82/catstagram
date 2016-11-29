@@ -55,7 +55,7 @@ class PastebinFileInfoUploader implements RemoteFileInfoUploader
              * check here that the response contains a URI
              */
             if (stripos($response, 'http') === 0) {
-                return $response;
+                $this->remoteUri = $response;
             }
 
         } catch (\Exception $e) {
