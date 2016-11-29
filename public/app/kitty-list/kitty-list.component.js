@@ -16,22 +16,22 @@ angular.module('kittyList').component('kittyList', {
                     'response': 'success',
                     'url': response.data.uri
                 });
-            
+
             }, function errorCallback(response) {
-                
+
                 self.pastes.push({
                     'response': 'error',
                     'message': response.data.message
                 });
-                
+
             });
         }
 
         self.getKitties = function getKitties() {
             $http.get('/api/list').then(function (response) {
-                
+
                 self.kitties = response.data;
-                
+
             });
         };
 

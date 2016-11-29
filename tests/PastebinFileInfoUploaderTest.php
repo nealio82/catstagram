@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Storage;
 class PastebinFileInfoUploaderTest extends TestCase
 {
 
+    private $uploader;
+
+    protected function setUp()
+    {
+        $this->uploader = new PastebinFileInfoUploader(new MockStorage(), new PastebinFileInfoStore(new MockPostTransport()));
+    }
+
     /**
      * Test creating with a valid filename
      *
@@ -22,11 +29,9 @@ class PastebinFileInfoUploaderTest extends TestCase
     public function testPostImageValidFilename()
     {
 
-        $uploader = new PastebinFileInfoUploader(new MockStorage(), new PastebinFileInfoStore(new MockPostTransport()));
+        $this->uploader->uploadInfo("images/example.jpg");
 
-        $uploader->uploadInfo("images/example.jpg");
-
-        $this->assertEquals($uploader->remoteUri(), 'http://example.com/paste_url');
+        $this->assertEquals($this->uploader->remoteUri(), 'http://example.com/paste_url');
 
     }
 
@@ -39,9 +44,7 @@ class PastebinFileInfoUploaderTest extends TestCase
     {
         $this->expectException(DomainException::class);
 
-        $uploader = new PastebinFileInfoUploader(new MockStorage(), new PastebinFileInfoStore(new MockPostTransport()));
-
-        $uploader->uploadInfo("images/bleurgh.jpg");
+        $this->uploader->uploadInfo("images/bleurgh.jpg");
 
     }
 }
