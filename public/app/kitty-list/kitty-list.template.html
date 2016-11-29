@@ -1,10 +1,9 @@
 <div id="sidebar">
 
-    <div class="alert alert-info alert-dismissable" ng-repeat="paste in $ctrl.pastes"
-         ng-if="paste.response == 'success'"><a href="{{ paste.url }}">{{ paste.url }}</a>
-    </div>
-    <div class="alert alert-danger alert-dismissable" ng-repeat="paste in $ctrl.pastes"
-         ng-if="paste.response == 'error'">{{ paste.message }}
+    <div class="alert" ng-repeat="paste in $ctrl.pastes"
+          ng-class="paste.response == 'success'?'alert-info':'alert-danger'">
+        <a href="{{ paste.url }}" ng-if="paste.response == 'success'">{{ paste.url }}</a>
+        <span ng-if="paste.response == 'error'">{{ paste.message }}</span>
     </div>
 
 </div>
