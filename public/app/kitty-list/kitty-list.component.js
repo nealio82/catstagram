@@ -12,25 +12,26 @@ angular.module('kittyList').component('kittyList', {
                 'filename': imagePath
             }).then(function successCallback(response) {
 
-                console.log(response);
-
                 self.pastes.push({
                     'response': 'success',
                     'url': response.data.uri
                 });
+            
             }, function errorCallback(response) {
+                
                 self.pastes.push({
                     'response': 'error',
                     'message': response.data.message
                 });
+                
             });
         }
 
         self.getKitties = function getKitties() {
             $http.get('/api/list').then(function (response) {
+                
                 self.kitties = response.data;
-
-                console.log(self.kitties);
+                
             });
         };
 
