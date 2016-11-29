@@ -26,7 +26,7 @@ class ApiTest extends TestCase
     }
 
     /**
-     * Test POSTing to the '/upload' endpoint with a valid id returns a success message
+     * Test POSTing to the '/upload' endpoint with a valid filename returns a success message
      *
      * @return void
      */
@@ -42,7 +42,7 @@ class ApiTest extends TestCase
     }
 
     /**
-     * Test POSTing to the '/upload' endpoint with a valid id returns a success message
+     * Test POSTing to the '/upload' endpoint with an invalid filename returns an error message and a 400 http response
      *
      * @return void
      */
