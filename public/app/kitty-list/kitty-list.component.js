@@ -7,7 +7,7 @@ angular.module('kittyList').component('kittyList', {
         var self = this;
         self.pastes = [];
 
-        self.uploadKittyInfo = function uploadKittyInfo(imagePath, index) {
+        self.uploadKittyInfo = function uploadKittyInfo(imagePath) {
             $http.post('/api/upload', {
                 'filename': imagePath
             }).then(function successCallback(response) {
