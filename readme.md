@@ -6,6 +6,9 @@
     $ git clone https://github.com/nealio82/catstagram.git
 
 ### Install PHP dependencies
+
+Assuming you have Composer installed globally on your system, you can just run the composer command as described. If you don't have composer, you'll need to download and install it from [https://getcomposer.org/](https://getcomposer.org/). Follow these instructions to [put composer into a global location on your system]((https://getcomposer.org/doc/00-intro.md#globally)).
+
     $ cd catstagram
     $ composer install
     
