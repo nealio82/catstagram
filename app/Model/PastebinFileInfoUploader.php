@@ -6,8 +6,6 @@ use App\Model\Contract\LocalFileStore;
 use App\Model\Contract\RemoteFileInfostore;
 use App\Model\Contract\RemoteFileInfoUploader;
 use Illuminate\Filesystem\FilesystemManager;
-use Illuminate\Support\Facades\Storage;
-use League\Flysystem\FilesystemInterface;
 
 class PastebinFileInfoUploader implements RemoteFileInfoUploader
 {

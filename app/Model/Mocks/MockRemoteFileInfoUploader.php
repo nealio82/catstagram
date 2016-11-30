@@ -2,29 +2,22 @@
 
 namespace App\Model\Mocks;
 
-use App\Model\Contract\RemoteFileInfostore;
 use App\Model\Contract\RemoteFileInfoUploader;
-use Illuminate\Filesystem\FilesystemManager;
-use Illuminate\Support\Facades\Storage;
 
 class MockRemoteFileInfoUploader implements RemoteFileInfoUploader
 {
 
     private $errorCode;
     private $remoteUri;
-    /**
-     * @var FilesystemManager
-     */
     private $localFilestore;
 
     /**
      * PastebinFileInfoUploader constructor.
-     * @param Storage $localFilestore
-     * @param RemoteFileInfostore $remoteFileInfostore
+     * @param MockStorage $localFilestore
      */
     public function __construct(MockStorage $localFilestore)
     {
-        $this->localFilestore = $localFilestore::disk('public');
+        $this->localFilestore = $localFilestore;
     }
 
     public function uploadInfo($filename)
@@ -38,9 +31,7 @@ class MockRemoteFileInfoUploader implements RemoteFileInfoUploader
             throw new \DomainException(sprintf("%s is not a valid filename", $filename));
         }
 
-
-        return 'http://example.com/asdfkjasd';
-
+        return 'http://example.com/paste_url';
 
     }
 
