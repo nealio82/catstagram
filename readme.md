@@ -16,6 +16,21 @@ Assuming you have Composer installed globally on your system, you can just run t
     $ npm install
     $ bower install
     
+## Setup some environment variables
+You'll need to properly set up the environment variables, otherwise Laravel will get upset and will only show you errors.
+
+Create a file called `.env` (note the leading '.') in the project root, right next to the `.env.example` file you can see.
+
+And add the following content
+
+    APP_ENV=local
+    APP_KEY=base64:DDKhdua1ionbgPteyvCCA38Ls5sd16bLCDVd4aqj0SQ=
+    APP_DEBUG=true
+    APP_LOG_LEVEL=debug
+    APP_URL=http://localhost
+    PASTEBIN_KEY=[YOUR PASTEBIN API KEY]
+    PASTEBIN_URI=http://pastebin.com/api/api_post.php
+    
 ## The Application
 
 Run the application as you wish, using Laravel's ```$ php artisan serve```, or the PHP built-in web server, or configure an Apache / Nginx host of your choice.
