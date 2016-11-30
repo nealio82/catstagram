@@ -54,7 +54,7 @@ To run Protractor e2e tests, first you must run the NPM server
     
 And in a separate terminal window:
 
-    $npm run protractor
+    $ npm run protractor
     
 ## Notes / Thoughts / Improvements
 
