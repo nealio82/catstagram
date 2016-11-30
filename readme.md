@@ -14,7 +14,8 @@ Assuming you have Composer installed globally on your system, you can just run t
     
 ### Install JS dependencies
     $ npm install
-    $ bower install
+    
+This will automatically kick off `bower install` as well 
     
 ## Setup some environment variables
 You'll need to properly set up the environment variables, otherwise Laravel will get upset and will only show you errors.
