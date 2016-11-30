@@ -2,15 +2,16 @@
 
 namespace App\Model;
 
+use App\Model\Contract\LocalFileStore;
 use App\Model\Contract\RemoteFileInfostore;
 use App\Model\Contract\RemoteFileInfoUploader;
 use Illuminate\Filesystem\FilesystemManager;
 use Illuminate\Support\Facades\Storage;
+use League\Flysystem\FilesystemInterface;
 
 class PastebinFileInfoUploader implements RemoteFileInfoUploader
 {
 
-    private $errorCode;
     private $remoteUri;
     /**
      * @var FilesystemManager
@@ -22,13 +23,12 @@ class PastebinFileInfoUploader implements RemoteFileInfoUploader
     private $remoteFileInfostore;
 
     /**
-     * PastebinFileInfoUploader constructor.
-     * @param Storage $localFilestore
+     * @param LocalFileStore $localFileStore
      * @param RemoteFileInfostore $remoteFileInfostore
      */
-    public function __construct(Storage $localFilestore, RemoteFileInfostore $remoteFileInfostore)
+    public function __construct(LocalFileStore $localFileStore, RemoteFileInfostore $remoteFileInfostore)
     {
-        $this->localFilestore = $localFilestore::disk('public');
+        $this->localFilestore = $localFileStore;
         $this->remoteFileInfostore = $remoteFileInfostore;
     }
 

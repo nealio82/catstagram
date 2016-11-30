@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Model\Adapter\LocalFileStoreAdapter;
+use App\Model\Contract\LocalFileStore;
 use App\Model\CurlPostTransport;
 use App\Model\Contract\HttpPostTransport;
 use App\Model\Contract\RemoteFileInfostore;
@@ -43,6 +45,12 @@ class AppServiceProvider extends ServiceProvider
             $key = env('PASTEBIN_KEY');
 
             return new PastebinFileInfoStore(new CurlPostTransport(), $key, $url);
+        }
+        );
+
+        $this->app->bind(
+            LocalFileStore::class, function () {
+            return new LocalFileStoreAdapter(Storage::disk('public'));
         }
         );
 

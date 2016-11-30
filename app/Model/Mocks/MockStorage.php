@@ -2,9 +2,10 @@
 
 namespace App\Model\Mocks;
 
+use App\Model\Contract\LocalFileStore;
 use Illuminate\Support\Facades\Storage;
 
-class MockStorage extends Storage
+class MockStorage extends Storage implements LocalFileStore
 {
 
     public static function disk($diskname)
@@ -12,7 +13,7 @@ class MockStorage extends Storage
         return new static();
     }
 
-    public static function size($filename)
+    public function size($filename)
     {
         return 181224;
     }
