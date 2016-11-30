@@ -20,6 +20,8 @@ Assuming you have Composer installed globally on your system, you can just run t
 
 Run the application as you wish, using Laravel's ```$ php artisan serve```, or the PHP built-in web server, or configure an Apache / Nginx host of your choice.
 
+If you choose to use Laravel's ```$ php artisan serve```, you should go to [http://localhost:8000](http://localhost:8000) in your browser to see the application.
+
 #### App details:
 - PHP backend: Laravel 5.3
 - Frontend JS: Angular 1.5.9
@@ -65,6 +67,7 @@ And in a separate terminal window:
     
 ## Notes / Thoughts / Improvements
 
-- The controller is coupled to the framework, albeit relatively loosely. It would be nice to implement PSR-7 compatible controllers, define them as services, and decouple completely from Laravel. I don't immediately know if Laravel provides an easy way to do this, or if trying so would be overkill for this project
-- I toyed with the idea of using Laravel's commandbus and dispatching domain events for user interactions, but again this seemed like overkill for the purposes of the tech test
-- The test cases is PastebinFileInfoUploaderTest.php pass the dependencies in a rather ugly way. They could be tidied. 
+- The controller is coupled to the framework, albeit relatively loosely. It would be nice to implement PSR-7 compatible controllers, define them as services, and decouple completely from Laravel. I don't immediately know if Laravel provides an easy way to do this, or if trying so would be overkill for this project.
+- I toyed with the idea of using Laravel's commandbus and dispatching domain events for user interactions, but again this seemed like overkill for the purposes of the tech test.
+- The test cases is PastebinFileInfoUploaderTest.php pass the dependencies in a rather ugly way. They could be tidied.
+- The uploaded URL notification could do with an auto-expire / remove on it to stop the page filling up with notifications.
