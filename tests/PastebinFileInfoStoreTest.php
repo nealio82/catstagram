@@ -21,7 +21,7 @@ class PastebinFileInfoStoreTest extends TestCase
     public function testPostDetails()
     {
 
-        $fileInfoStore = new PastebinFileInfoStore(new MockPostTransport());
+        $fileInfoStore = new PastebinFileInfoStore(new MockPostTransport(), 'api_key', 'api_url');
 
         $this->assertEquals($fileInfoStore->postDetails('example.jpg', 181225), 'http://example.com/paste_url');
 

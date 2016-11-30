@@ -18,7 +18,7 @@ class PastebinFileInfoUploaderTest extends TestCase
 
     protected function setUp()
     {
-        $this->uploader = new PastebinFileInfoUploader(new MockStorage(), new PastebinFileInfoStore(new MockPostTransport()));
+        $this->uploader = new PastebinFileInfoUploader(new MockStorage(), new PastebinFileInfoStore(new MockPostTransport(), 'api_key', 'api_url'));
     }
 
     /**

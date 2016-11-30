@@ -37,8 +37,15 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
-            RemoteFileInfostore::class, PastebinFileInfoStore::class
+            RemoteFileInfostore::class, function () {
+
+            $url = env('PASTEBIN_URI');
+            $key = env('PASTEBIN_KEY');
+
+            return new PastebinFileInfoStore(new CurlPostTransport(), $key, $url);
+        }
         );
+
 
         $this->app->bind(
             RemoteFileInfoUploader::class, PastebinFileInfoUploader::class
@@ -49,4 +56,5 @@ class AppServiceProvider extends ServiceProvider
         );
 
     }
+
 }
