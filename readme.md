@@ -37,6 +37,10 @@ Run the application as you wish, using Laravel's ```$ php artisan serve```, or t
 
 If you choose to use Laravel's ```$ php artisan serve```, you should go to [http://localhost:8000](http://localhost:8000) in your browser to see the application.
 
+Pastebin api feedback is given to the user in the UI. Error feedback is shown in red boxes, successful transfers are shown in blue and contain a clickable link. 
+
+![Pastebin feedback](doc/messages.png)
+
 #### App details:
 - PHP backend: Laravel 5.3
 - Frontend JS: Angular 1.5.9
@@ -57,6 +61,7 @@ PHP API acceptance tests and unit tests are performed with PHPUnit and are in th
 
     $ php vendor/phpunit/phpunit/phpunit
     
+![PHPUnit test output](doc/phpunit.png)
 
 ### Javascript tests
 
@@ -70,6 +75,8 @@ Then run the test suite
 
     $ npm test
     
+![Jasmine test output](doc/jasmine.png)
+    
 #### Protractor end-to-end tests
     
 To run Protractor e2e tests, first you must run the NPM server
@@ -79,6 +86,9 @@ To run Protractor e2e tests, first you must run the NPM server
 And in a separate terminal window:
 
     $ npm run protractor
+    
+![Protractor test output](doc/protractor.png)
+    
     
 ## Notes / Thoughts / Improvements
 
