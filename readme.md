@@ -44,6 +44,10 @@ JS tests are written using Angular's Jasmine framework for spec tests and Protra
 
 #### Jasmine spec tests:
 
+First you need to configure which browsers you have on your system in [karma.conf.js](karma.conf.js). If you have both Firefox and Chrome installed on your system for example, you can leave the config as it is. If you only have Chrome you should remove 'Firefox' from the config, and vice-versa.
+  
+Then run the test suite
+
     $ npm test
     
 #### Protractor end-to-end tests
